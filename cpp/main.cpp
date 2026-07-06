@@ -129,6 +129,8 @@ double GetPriceAtQuarter(
 
 int main()
 {
+    curl_global_init(CURL_GLOBAL_DEFAULT);
+
     try
     {
         auto today = FetchTodayPrices();
@@ -142,11 +144,13 @@ int main()
         std::cout << "TODAY PRICE[0]: " << today[0] << "\n";
         std::cout << "PAST  PRICE[0]: " << past[0] << "\n";
 
+        curl_global_cleanup();
         return 0;
     }
     catch (const std::exception& e)
     {
         std::cerr << e.what() << "\n";
+        curl_global_cleanup();
         return 1;
     }
 }

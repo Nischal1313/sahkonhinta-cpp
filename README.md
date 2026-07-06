@@ -1,30 +1,20 @@
-# Electricity Price Fetcher (15-minute market prices)
+# Sahkonhinta
 
-This project fetches electricity prices from the SahkoHinta API and provides utilities to query:
+Finnish electricity spot prices — implementations in C++, Rust, and Python.
 
-- Today’s full 15-minute price curve (96 values)
-- Historical day prices
-- Current price (“price now”)
-- Specific quarter-hour price lookup
-
-## API Source
-
-This project uses:
-
-https://www.sahkohinta-api.fi/documentation.htm#aloitus
-
----
-
-## Build requirements
-
-### Dependencies
-
-- C++20 compiler (GCC / Clang)
-- libcurl
-- nlohmann/json
-
-### Install dependencies (Ubuntu/Debian)
+## Usage
 
 ```bash
-sudo apt update
-sudo apt install g++ libcurl4-openssl-dev nlohmann-json3-dev
+# C++
+cd cpp && cmake -B build && cmake --build build && ./build/electricity_test
+
+# Rust
+cd rust && cargo run
+
+# Python
+cd python && python3 main.py
+```
+
+## API
+
+[sahkohinta-api.fi](https://www.sahkohinta-api.fi/) — 96 quarter-hourly prices per day.
